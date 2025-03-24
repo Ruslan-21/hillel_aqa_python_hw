@@ -75,8 +75,6 @@ print(adwentures_of_tom_sawer_sentences)
 """ Виведіть четверте речення з adwentures_of_tom_sawer_sentences.
 Перетворіть рядок у нижній регістр.
 """
-sentences = adwentures_of_tom_sawer.split(".adwentures_of_tom_sawer.find("Tom", first_index + 1) if first_index != -1 else -1
-")
 adwentures_of_tom_sawer_sentences = adwentures_of_tom_sawer.split(". ")
 
 first_case = adwentures_of_tom_sawer.split(".")
