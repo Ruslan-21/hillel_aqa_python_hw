@@ -60,11 +60,9 @@ print(f"Кількість слів, що починаються з велико
 """ Виведіть позицію, на якій слово Tom зустрічається вдруге
 """
 first_index = adwentures_of_tom_sawer.find("Tom")
-second_index = adwentures_of_tom_sawer.find("Tom", first_index + 1) if first_index != -1 else -1
-if second_index != -1:
-    print(f'Зустрічається слово "Tom": {second_index}')
-else:
-    print("Слово 'Tom' зустрічається менше двох разів.")
+second_index = adwentures_of_tom_sawer.find("Tom", first_index + 1)
+
+print(f'Зустрічається слово "Tom": {second_index}' if second_index != -1 else "Слово 'Tom' зустрічається менше двох разів.")
 # task 07
 """ Розділіть змінну adwentures_of_tom_sawer по кінцю речення.
 Збережіть результат у змінній adwentures_of_tom_sawer_sentences
@@ -77,13 +75,13 @@ print(adwentures_of_tom_sawer_sentences)
 """ Виведіть четверте речення з adwentures_of_tom_sawer_sentences.
 Перетворіть рядок у нижній регістр.
 """
-sentences = adwentures_of_tom_sawer.splitlines()
+sentences = adwentures_of_tom_sawer.split(".adwentures_of_tom_sawer.find("Tom", first_index + 1) if first_index != -1 else -1
+")
+adwentures_of_tom_sawer_sentences = adwentures_of_tom_sawer.split(". ")
 
-if len(sentences) >= 4:
-    fourth_sentence = sentences[3].strip()
-    print(fourth_sentence.lower())
-else:
-    print("Четверте речення не знайдено.")
+first_case = adwentures_of_tom_sawer.split(".")
+case = first_case[3]
+print(case.lower())
 
 # task 09
 """ Перевірте чи починається якесь речення з "By the time".
