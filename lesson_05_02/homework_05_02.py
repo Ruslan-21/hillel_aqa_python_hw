@@ -15,9 +15,15 @@ people_records = [
   ('Ava', 'White', 42, 'Journalist', 'San Diego'),
   ('Ethan', 'Anderson', 36, 'Product Manager', 'Phoenix')
 ]
-
+# 1
+people = ('Ivan', 'Ivanov', 35 , 'Financial Analyst', 'Kyiv')
+people_records.insert(0, people)
+# 2
+people_records[1], people_records[5] = people_records[5], people_records[1]
+for person in people_records:
+    print(person)
+# 3
 index = [6, 10, 13]
 for age in index:
   if people_records[age][2] >= 30:
      print(people_records[age])
-
