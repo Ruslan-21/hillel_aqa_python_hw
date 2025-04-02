@@ -27,3 +27,6 @@ index = [6, 10, 13]
 for age in index:
   if people_records[age][2] >= 30:
      print(people_records[age])
+# 4
+all_people = all(people_records[i][2] >= 30 for i in index)
+print("Всі віком 30 або більше:", all_people)
