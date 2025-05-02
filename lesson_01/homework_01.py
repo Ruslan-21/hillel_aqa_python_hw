@@ -6,7 +6,7 @@ print("world!")
 hello = "Hello"
 world = "world"
 if True:
- print(f"{hello} {world}!")
+    print(f"{hello} {world}!")
 
 # task 03  == Вcтавте пропущену змінну у ф-цію print
 for letter in "Hello world!":
