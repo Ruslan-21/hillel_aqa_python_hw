@@ -1,5 +1,5 @@
-import unittest
-from lesson_09.homework_09 import calculate_average, reverse_string, sum_of_even_numbers, is_anagram, triangle_area
+# import unittest
+# from lesson_09.homework_09 import calculate_average, reverse_string, sum_of_even_numbers, is_anagram, triangle_area
 
 
 
