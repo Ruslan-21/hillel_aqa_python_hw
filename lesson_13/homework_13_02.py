@@ -8,7 +8,7 @@ from json.decoder import JSONDecodeError
 
 def validate_json_files(folder_path):
     folder = Path(folder_path)
-    log_file = Path("D:/hillel_aqa_python/lesson_13/work_with_json/Error.log")
+    log_file = Path(__file__).parent / "Error.log"
 
     logging.basicConfig(
         filename=log_file,
@@ -25,4 +25,4 @@ def validate_json_files(folder_path):
             except JSONDecodeError as e:
                 logging.error(f"Файл {file.name} не валідний: {e}")
 
-validate_json_files("D:/hillel_aqa_python/lesson_13/work_with_json")
+validate_json_files(Path(__file__).parent / "work_with_json")

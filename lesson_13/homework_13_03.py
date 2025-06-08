@@ -39,4 +39,6 @@ def find_timing_exbytes_incoming(xml_file, group_number):
 
 
 
-find_timing_exbytes_incoming('D:/hillel_aqa_python/lesson_13/work_with_xml/groups.xml', '7')
+xml_file_path = Path(__file__).parent /  "work_with_xml" / "groups.xml"
+find_timing_exbytes_incoming(xml_file_path, '7')
+
