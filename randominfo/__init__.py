@@ -18,7 +18,7 @@ full_path = lambda filename: abspath(join(dirname(__file__), filename))
 
 def get_id(length = 6, seq_number = None, step = 1, prefix = None, postfix = None):
 	generated_id = ""
-	if seq_number == None:
+	if seq_number is None:
 		for _ in range(length):
 			generated_id += str(randint(0,9))
 	else:
@@ -26,25 +26,26 @@ def get_id(length = 6, seq_number = None, step = 1, prefix = None, postfix = Non
 			raise TypeError("Sequence number must be an integer.")
 		else:
 			generated_id = str(seq_number + step)
-	if prefix != None:
+	if prefix is not None:
 		prefix += generated_id
 		generated_id = prefix
-	if postfix != None:
+	if postfix is not None:
 		generated_id += postfix
 	return generated_id
 
 def get_first_name(gender = None):
-	firstNameFile = csv.reader(open(full_path('data.csv'), 'r'))
-	filteredData = []
-	if gender == None:
-		for data in firstNameFile:
-			if data[0] != '':
-				filteredData.append(data)
-	else:
-		if gender.lower() == "male":
-			for data in firstNameFile:
-				if data[0] != '':
-					if(data[2] == "male"):
+	with open((full_path('data.csv'), 'r') as f:
+	     firstNameFile = csv.reader(f)
+	     filteredData = []
+	     if gender is None:
+	         for data in firstNameFile:
+			    if data[0] != '':
+				    filteredData.append(data)
+	    else:
+		    if gender.lower() == "male":
+			    for data in firstNameFile:
+				    if data[0] != '':
+					    if(data[2] == "male"):
 						filteredData.append(data)
 		elif gender.lower() == "female":
 			for data in firstNameFile:
@@ -99,7 +100,7 @@ def get_otp(length = 6, digit = True, alpha = True, lowercase = True, uppercase 
 	digs = "0123456789"
 	chars = ""
 	otp = ""
-	if digit != False or alpha != False:
+	if digit or alpha:
 		if digit == True:
 			chars += digs
 		if alpha == True:
@@ -297,7 +298,7 @@ class Person:
 		self.email = get_email(self)
 		self.gender = get_gender(firstName)
 		self.country = get_country(firstName)
-		self.paswd = random_password()
+		self.password = random_password()
 		self.hobbies = get_hobbies()
 		self.address = get_address()
 		self.customAttr = {}
@@ -333,7 +334,7 @@ class Person:
 			"gender": self.gender,
 			"email": self.email,
 			"phone": self.phone,
-			"paswd": self.paswd,
+			"paswd": self.password,
 			"country": self.country,
 			"hobbies": self.hobbies,
 			"address": self.address,
