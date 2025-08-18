@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Ruslan-21/hillel_aqa_python_hw.git'
+            }
+        }
+        stage('Install browser') {
+            steps {
+                sh '''
+                    apt-get update
+                    apt-get install -y chromium chromium-driver fonts-liberation libasound2
+                    chromium --version || true
+                    chromedriver --version || true
+                '''
+            }
+        }
+
+        stage('Install dependencies') {
+            steps {
+                sh '''
+                    apt-get update
+                    apt-get install -y python3 python3-dev python3-pip python3.11-venv
+                    rm -rf venv
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install --upgrade pip
+                    pip install -r requirements.txt
+                '''
+            }
+        }
+
+        stage('Run tests') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    export PYTHONPATH="$WORKSPACE"
+                    pytest lesson_27 --alluredir=allure-results
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            allure includeProperties: false, results: [[path: 'allure-results']]
+        }
+    }
+}
